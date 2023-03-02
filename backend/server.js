@@ -27,7 +27,7 @@ mongoose.connection.once('open', () => {
 })
 
 // route of sales API
-const salesRouter = require('./routes/sales.route');
+const salesRouter = require('./routes/sales');
 app.use('/sales', salesRouter);
 
 app.listen(HTTP_PORT, () => {
