@@ -30,6 +30,15 @@ mongoose.connection.once('open', () => {
 const salesRouter = require('./routes/sales');
 app.use('/sales', salesRouter);
 
+app.get("/", (req, res) => {
+    res.json({message: "API Listening"});
+})
+
+//for unknown request
+app.use((req, res) => {
+    res.status(404).send("Page Not Found");
+});
+
 app.listen(HTTP_PORT, () => {
     console.log(`Server listening on: ${HTTP_PORT}`);
 });
